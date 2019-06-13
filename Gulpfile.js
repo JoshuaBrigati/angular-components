@@ -23,13 +23,9 @@ gulp.task('todo', function() {
 });
 
 gulp.task('build', ['todo'], function() {
-  //TODO
-  /*
-  fill this task out to take in entry file
-  and build using the webpack plugin.
-  the plugin takes the webpack.config as an arg.
-  be sure to stream the result to the destination path
-   */
+  return gulp.src(paths.js)
+    .pipe(webpack(require('./webpack.config')))
+    .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task('serve', function() {
